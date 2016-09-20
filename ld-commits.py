@@ -14,6 +14,7 @@ def landing():
 @app.route('/', methods=['POST'])
 def post_hook():
     push = json.loads(request.data)
+
     print push
-    return True
+    return push
 
