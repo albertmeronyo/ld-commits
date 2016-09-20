@@ -2,7 +2,7 @@
 
 # ld-commits.py: backend for LD commits
 
-from flask import Flask
+from flask import Flask, request
 import json
 
 app = Flask(__name__)
