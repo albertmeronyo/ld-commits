@@ -14,7 +14,10 @@ def landing():
 @app.route('/', methods=['POST'])
 def post_hook():
     push = json.loads(request.data)
+    for c in push['commits']:
+        print c['message']
 
-    print push
     return push
 
+if __name__ == '__main__':
+    app.run(port=5000, debug=True)
