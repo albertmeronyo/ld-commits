@@ -17,5 +17,7 @@ def post_hook():
     for c in push['commits']:
         print c['message']
 
+    return c['message']
+
 if __name__ == '__main__':
     app.run(port=5000, debug=True)
