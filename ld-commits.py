@@ -25,11 +25,11 @@ def post_hook():
     logger.debug('Received commit message: {}'.format(commit_message))
     # We'll ignore the first line of the commit message
     # Typically this line is by humans for humans
-
+    rdf_message = commit_message.split('\n', 1)[-1]
     
     logger.debug('Parsing triples from commit message')
     g = Graph()
-    g.parse(data=commit_message, format='turtle')
+    g.parse(data=rdf_message, format='turtle')
     logger.debug('RDF graph parsed {} triples'.format(len(g)))
     
     return c['message']
