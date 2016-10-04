@@ -26,7 +26,7 @@ def post_hook():
     
     logger.debug('Parsing triples from commit message')
     g = Graph()
-    g.parse(data=commit_message)
+    g.parse(data=commit_message, format='turtle')
     logger.debug('RDF graph parsed {} triples'.format(len(g)))
     
     return c['message']
