@@ -4,8 +4,13 @@
 
 from flask import Flask, request, jsonify
 import json
+from rdflib import Graph
+import logging
 
 app = Flask(__name__)
+
+logging.basicConfig(level=logging.DEBUG, 
+                    format='%(asctime)-15s [%(levelname)s] (%(module)s.%(funcName)s) %(message)s')
 
 @app.route('/')
 def landing():
@@ -15,8 +20,14 @@ def landing():
 def post_hook():
     push = json.loads(request.data)
     for c in push['commits']:
-        print c['message']
-
+        commit_message = c['message']
+    logger.debug('Received commit message: {}'.format(commit_message))
+    
+    logger.debug('Parsing triples from commit message')
+    g = Graph()
+    g.parse(commit_message)
+    logger.debug('RDF graph parsed {} triples'.format(len(g)))
+    
     return c['message']
 
 if __name__ == '__main__':
