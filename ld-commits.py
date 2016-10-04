@@ -11,6 +11,7 @@ app = Flask(__name__)
 
 logging.basicConfig(level=logging.DEBUG, 
                     format='%(asctime)-15s [%(levelname)s] (%(module)s.%(funcName)s) %(message)s')
+logger = logging.getLogger(__name__)
 
 @app.route('/')
 def landing():
