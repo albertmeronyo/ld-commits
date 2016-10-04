@@ -23,6 +23,7 @@ def post_hook():
     for c in push['commits']:
         commit_message = c['message']
     logger.debug('Received commit message: {}'.format(commit_message))
+
     # We'll ignore the first line of the commit message
     # Typically this line is by humans for humans
     rdf_message = commit_message.split('\n', 1)[-1]
