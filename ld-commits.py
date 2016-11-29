@@ -15,17 +15,6 @@ logger = logging.getLogger(__name__)
 
 g = Graph()
 
-# endpoint_url = 'http://ld-commits.amp.ops.labs.vu.nl'
-
-# ldp_url = URIRef("http://www.w3.org/ns/ldp#")
-# ldp = Namespace(ldp_url)
-
-# g.add((URIRef(endpoint_url), RDF.type, ldp['Resource']))
-# g.add((URIRef(endpoint_url), RDF.type, ldp['RDFSource']))
-# g.add((URIRef(endpoint_url), RDF.type, ldp['Container']))
-# g.add((URIRef(endpoint_url), RDF.type, ldp['BasicContainer']))
-# g.bind('ldp', ldp)
-
 @app.route('/', methods=['GET'])
 def landing():
     # return 'LD-commits server here, listening to your POST commit HTTP requests :-)'
